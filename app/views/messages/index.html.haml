@@ -1,0 +1,40 @@
+.side
+  .side__user
+    .sideuser__detail
+      .sideuser__detail--name
+        = current_user.name
+        %a.sideuser__detail--new-group
+          = link_to new_group_path do
+            %i.fas.fa-edit
+        %a.sideuser__detail--user-edit
+          = link_to edit_user_path(current_user) do
+            %i.fas.fa-cog
+    .side__groups
+      .side__groups--list
+        - current_user.groups.each do |group|
+          = link_to group_messages_path(group) do
+            .side__groups--group
+              .side__groups--group-name
+                = group.name
+              .side__groups--group-message
+                = group.show_last_message
+.chatroom
+  .chatroom__header
+    .chatroom__header-name
+      = @group.name
+    .chatroom__header-member
+      - @group.users.each do |user|
+        = user.name
+    .chatroom__header-edit
+      = link_to "edit", edit_group_path(@group)
+  .chatroom__body
+    = render @messages
+  .chatroom__footer
+    .chatroom__footer-message
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'chatroom__footer--message-input',size: '90', placeholder: ' type a message'
+        .chatroom__footer--message-image
+          = f.label :image, class: 'chatroom__footer--message-image' do
+            %i.far.fa-image
+              = f.file_field :image, style: 'display: none;'
+          = f.submit 'Send', class: 'chatroom__footer--botton'

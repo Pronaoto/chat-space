@@ -1,0 +1,12 @@
+.chatroom__body-message.clearfix{"data-message-id": "#{message.id}"}
+  .chatroom__body--message-name
+    = message.user.name
+  .chatroom__body--message-time
+    = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .chatroom__body--message-body
+    - if message.content.present?
+      = message.content
+      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+
+

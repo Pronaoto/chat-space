@@ -1,0 +1,183 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+
+.side {
+  background-color: $navy;
+  height: 100%;
+  width: 300px;
+  float: left;
+  position: relative;
+  overflow: scroll;
+  &__user {
+  background-color: $darknavy;
+  height: 15%;
+  width: 100%;
+  position: relative;
+   .sideuser__detail {
+    height: 40px;
+    width: 100%;
+    line-height: 50px;
+    margin: auto 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    &--name {
+      color: $white;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0 20px;
+      position: relative;
+      display: inline-block;
+      .sideuser__detail--new-group {
+        color: $white;
+        margin-left: 100px;
+      }
+      .sideuser__detail--user-edit {
+        color: $white;
+      }
+    }
+   }
+  }
+  .side__groups {
+    height: 85%;
+    width: 100%;
+    background-color: $navy;
+    position: absolute;
+    top: 135px;
+    &--list {
+      color: $white;
+      height: 100%;
+     .side__groups--group {
+          padding: 20px;
+          padding-top: 20px;
+          margin: 10px 0 10px 0;
+      .side__groups--group-name {
+           font-size: $side_group_name;
+           color: $white;
+        }
+      .side__groups--group-message {
+           font-size: $side_group_message;
+           color: $white;
+        }
+      }
+    }
+  }
+}
+
+.chatroom {
+  background-color: $white;
+  height: 90vh;
+  width: calc(100vw - 300px);
+  float: left;
+  .chatroom__header {
+    height: 15%;
+    border: 1px, #eeeeee;
+    position: relative;
+    &-name {
+      color: $black;
+      font-size: 20px;
+      position: absolute;
+      top: 35px;
+      bottom: 15px;
+      margin-left: 40px;
+    }
+    &-member {
+      color: $gray;
+      font-size: 12px;
+      margin-left: 40px;
+      position: absolute;
+      top: 70px;
+      bottom: 15px;
+    }
+    &-edit {
+      color: $lightblue;
+      font-size: 15px;
+      float: right;
+      border: 1px solid $lightblue;
+      margin-right: 40px;
+      margin-top: 28px;
+      padding: 12.5px 20px 12.5px 20px;
+    }
+  }
+
+  .chatroom__body {
+    background-color: white gray;
+    height: 85%;
+    width: calc(100vw - 300px);
+    position: relative;
+    overflow: scroll;
+    &-message {
+      margin-left: 40px;
+      padding-top: 46px;
+      .chatroom__body--message-name{
+        font-size: 20px;
+        font-weight: bold;
+        color: $black;
+        position: relative;
+        display: inline-block;
+      }
+      .chatroom__body--message-time{
+        color: $gray;
+        font-size: 10px;
+        display: inline;
+      }
+      .chatroom__body--message-body{
+        color: $black;
+        font-size: 14px;
+        padding-top: 10px;
+        padding-bottom: 40px;
+      }
+    }
+
+  }
+  .chatroom__footer {
+    width: calc(100vw - 300px);
+    height: 90px;
+    background-color: $gray2;
+    clear: both;
+    position: absolute;
+    bottom: 0px;
+    .chatroom__footer-message{
+      margin-left: 40px;
+      padding-top: 20px;
+      display: inline-block;
+      position: relative;
+      .chatroom__footer--message-form{
+        }
+        .chatroom__footer--message-input{
+          height: 50px;
+          font-size: 16px;
+          color: $form;
+          border: none;
+         }
+        .chatroom__footer--message-image{
+          position: absolute;
+          right: 20px;
+          height: 50px;
+          width: 30px;
+          margin: 20px 0px 20px;
+          top: 0;
+          right: 0;
+          }
+          .chatroom__footer--botton{
+            background-color:$lightblue;
+            padding: 12.5px 20px 12.5px 20px;
+            color: $white;
+            height: 50px;
+            border: none;
+            margin-left: 50px;
+            margin-bottom: 40px;
+      }
+    }
+  }
+}
