@@ -29,6 +29,7 @@
     background-color: $side_blue_light;
     height: calc(100vh - 100px);
     padding: 10px 0 30px 20px;
+    overflow: scroll;
     .group {
       box-sizing: border-box;
       &__name {
