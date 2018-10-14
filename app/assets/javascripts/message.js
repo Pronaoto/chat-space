@@ -1,12 +1,13 @@
 $(document).on('turbolinks:load', function() {
 $(function(){
   function buildHTML(message){
+    // console.log(message.id);
     var image = "";
 
     image = (message.image) ? `<img class="lower-message__image" src="${ message.image }">`: "";
 
     var html =
-                    `<div class='chatroom__body-message clearfix' data-message-id="$(message.id)">
+                    `<div class='chatroom__body-message clearfix' data-message-id="${message.id}">
                         <div class='chatroom__body--message-name'>
                             ${message.name}
                         </div>
@@ -46,12 +47,8 @@ $(function(){
   });
 
  function autoUpdate(){
-    if($('.chatroom__body')[0]){
-      var message_id = $('.chatroom__body-message:last').data('message-id');
-
-    } else {
-      var message_id = 0;
-    }
+      var message_id = $('.chatroom__body-message:last').data('message-id') || 0;
+      // console.log(message_id);
 
     $.ajax({
       url: location.href,
@@ -78,10 +75,11 @@ $(function(){
   }
 
   var interval = setInterval(function(){
+    // console.log($('.chatroom__body-message').length);
      if (window.location.href.match(/\/groups\/\d+\/messages/)){
        autoUpdate();
      } else {
-       clearInterval();
+       clearInterval(interval);
      }
     }, 5000)
   });
