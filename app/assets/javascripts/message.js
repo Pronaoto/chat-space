@@ -73,16 +73,16 @@ $(function(){
       // .chatroom__bodyに追加
     })
     .fail(function(data){
-      alert('自動更新に失敗しました。');
-    });
+      alert('自動更新に失敗しました。')
+    })
   }
 
   var interval = setInterval(function(){
      if (window.location.href.match(/\/groups\/\d+\/messages/)){
        autoUpdate();
      } else {
-       clearInterval(interval);
+       clearInterval();
      }
-  }, 5000)
-})
+    }, 5000)
+  });
 });
