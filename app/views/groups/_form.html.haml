@@ -23,14 +23,9 @@
         = f.label :name,"チャットメンバー",class: "chat-group-form__label"
       .chat-group-form__field--right
         #chat-group-users
-          - group.users.each do|user|
-            .chat-group-user.clearfix
-              / .chat-group-user__name
-              /   = f.hidden_field :user_ids,name:"group[user_ids][]",value: user.id
-              /   = user.name
-              / %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
-          #chat-group-user-8292.chat-group-user.clearfix.js-chat-member
-            %input{:name => "group[user_ids][]", :type => "hidden"}/
+          .chat-group-user.clearfix
+            #chat-group-user-8292.chat-group-user.clearfix.js-chat-member
+              %input{:name => "group[user_ids][]", :type => "hidden"}/
             %p.chat-group-user__name
               = current_user.name
     .chat-group-form__field.clearfix
